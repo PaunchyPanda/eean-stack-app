@@ -1,19 +1,30 @@
 const bodyParser = require('body-parser');
 const cors = require('cors');
-//const config = require('./config/database');
+const config = require('./config/database');
 const elasticsearch = require('elasticsearch');
 const express = require('express');
 const passport = require('passport');
 const path = require('path');
 
-const app = express();
+const client = new elasticsearch.Client(config.database);
 
-const users = require('./routes/users');
+module.exports = client;
+
+const app = express();
 
 const port = 3000;
 
-app.use('/users', users);
+// Middleware
+app.use(cors());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 
+// Route handlers
+app.use('/users', require('./routes/users'));
+
+// Index route handler
 app.get('/', (req, res) => {
   res.send('run ng build in angular-src directory');
 });
