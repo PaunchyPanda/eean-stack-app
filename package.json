@@ -1,0 +1,32 @@
+{
+  "name": "eean-stack-app",
+  "version": "1.0.0",
+  "description": "Experimenting with the EEAN Stack",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaunchyPanda/eean-stack-app.git"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "elasticsearch": "*",
+    "express": "*",
+    "flash-messages": "*",
+    "jsonwebtoken": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "uuid": "*"
+  },
+  "author": "Brian McGowan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaunchyPanda/eean-stack-app/issues"
+  },
+  "homepage": "https://github.com/PaunchyPanda/eean-stack-app#readme"
+}
