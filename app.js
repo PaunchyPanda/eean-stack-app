@@ -7,7 +7,6 @@ const passport = require('passport');
 const path = require('path');
 
 const client = new elasticsearch.Client(config.database);
-
 module.exports = client;
 
 const app = express();
@@ -20,6 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
+
+//require('./config/passport')(passport);
 
 // Route handlers
 app.use('/users', require('./routes/users'));
